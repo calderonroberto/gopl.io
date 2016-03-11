@@ -17,9 +17,9 @@ import (
 
 func main() {
 	for _, url := range os.Args[1:] {
-		s := []string{"http://", url}
-		if !strings.HasPrefix(url, s[0]) {
-			url = strings.Join(s, "")
+		safeUrl := []string{"http://", url}
+		if !strings.HasPrefix(url, safeUrl[0]) {
+			url = strings.Join(safeUrl, "")
 		}
 		resp, err := http.Get(url)
 		fmt.Printf("Status Code: %d\n", resp.StatusCode)
