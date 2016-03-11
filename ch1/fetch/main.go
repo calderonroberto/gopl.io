@@ -22,6 +22,7 @@ func main() {
 			url = strings.Join(s, "")
 		}
 		resp, err := http.Get(url)
+		fmt.Printf("Status Code: %d\n", resp.StatusCode)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
 			os.Exit(1)
